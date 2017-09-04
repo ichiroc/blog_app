@@ -1,0 +1,12 @@
+%table.table
+  %tr
+    %th タイトル
+    %th 本文
+    %th 公開日
+    %th
+  - @posts.each do |post|
+    %tr
+      %td= post.title
+      %td= post.body
+      %td= post.published_at
+      %td= link_to 'Edit', edit_admin_post_path(post)

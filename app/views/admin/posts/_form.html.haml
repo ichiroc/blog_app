@@ -1,0 +1,7 @@
+= simple_form_for [:admin, @post] do |f|
+  = f.input :title
+  = f.input :url_path
+  = f.input :tag_list
+  = f.input :body
+  = f.input :published_at, include_blank: true
+  = f.submit
