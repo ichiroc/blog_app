@@ -5,4 +5,5 @@
       - post.tag_list.each do |tag|
         %span.badge.badge-primary= tag
   .card-body
-    .card-text= post.body
+    .card-text
+      = raw htmlize(post.body)

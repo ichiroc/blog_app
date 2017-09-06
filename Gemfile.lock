@@ -82,6 +82,8 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     commonjs (0.2.7)
+    commonmarker (0.17.0)
+      ruby-enum (~> 0.5)
     concurrent-ruby (1.0.5)
     database_cleaner (1.6.1)
     debug_inspector (0.0.3)
@@ -100,6 +102,7 @@ GEM
     font-awesome-rails (4.7.0.2)
       railties (>= 3.2, < 5.2)
     formatador (0.2.5)
+    github-markup (1.6.1)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     guard (2.14.1)
@@ -251,6 +254,8 @@ GEM
       rspec-mocks (~> 3.6.0)
       rspec-support (~> 3.6.0)
     rspec-support (3.6.0)
+    ruby-enum (0.7.1)
+      i18n
     ruby_dep (1.5.0)
     ruby_parser (3.10.1)
       sexp_processor (~> 4.9)
@@ -327,10 +332,12 @@ DEPENDENCIES
   capybara (~> 2.13)
   capybara-webkit
   coffee-rails (~> 4.2)
+  commonmarker
   database_cleaner
   factory_girl_rails
   faker
   font-awesome-rails
+  github-markup
   guard-rspec
   haml-rails
   jbuilder (~> 2.5)
