@@ -57,3 +57,4 @@ end
 gem 'therubyracer'
 gem 'less-rails'
 gem 'acts-as-taggable-on'
+gem 'font-awesome-rails'
