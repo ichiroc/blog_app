@@ -36,7 +36,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'haml-rails'
 gem 'kaminari'
 gem 'simple_form'
-gem 'twitter-bootstrap-rails'
+gem 'jquery-rails'
+gem 'bootstrap', '~> 4.0.0.beta'
 group :development, :test do
   gem 'annotate'
   gem 'better_errors'

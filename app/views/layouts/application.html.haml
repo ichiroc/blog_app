@@ -14,22 +14,20 @@
 
 
   %body
-    .navbar.navbar-default.navbar-static-top
-      .container
-        %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
-          %span.icon-bar
-          %span.icon-bar
-          %span.icon-bar
-        %a.navbar-brand(href= admin_root_path )= @blog.title
-        .navbar-collapse.collapse.navbar-responsive-collapse
-          %ul.nav.navbar-nav
-            %li= link_to 'ブログ管理', edit_admin_blog_path
-            %li= link_to '記事管理', admin_posts_path
+    .navbar.navbar-expand-lg.navbar-dark.bg-dark
+      %a.navbar-brand(href= admin_root_path )= @blog.title
+      #navbar-links.navbar-collapse.collapse
+        %ul.nav.navbar-nav
+          %li.nav-item= link_to 'ブログ管理', edit_admin_blog_path, class: 'nav-link'
+          %li.nav-item= link_to '記事管理', admin_posts_path, class: 'nav-link'
+      %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
 
     .container
       .row
         .col-lg-9
-          = bootstrap_flash
           = yield
       %footer
         %p &copy; Company 2017
