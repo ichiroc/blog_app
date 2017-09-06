@@ -20,6 +20,6 @@ class Post < ApplicationRecord
   belongs_to :blog
   validates :title, presence: true
   validates :body, presence: true
-  validates :url_path, presence: true
+  validates :url_path, presence: true, uniqueness: { scope: :blog_id }
   acts_as_taggable
 end

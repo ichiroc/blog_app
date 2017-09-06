@@ -2,31 +2,29 @@ class Admin::PostsController < Admin::BaseController
   before_action :set_post, only: %i(show edit update destroy)
 
   def index
-    @posts = Post.all
+    @posts = @blog.posts
   end
 
   def new
-    @post = Post.new
+    @post = @blog.posts.build
   end
 
   def create
-    post = @blog.posts.new(post_params)
-    if post.save
-      redirect_to post, notice: '作成しました'
+    @post = @blog.posts.new(post_params)
+    if @post.save
+      redirect_to admin_posts_path, notice: '作成しました'
     else
       render :new, alert: '入力内容を確認して下さい'
     end
   end
 
-  def show; end
-
   def edit; end
 
   def update
     if @post.update_attributes(post_params)
-      redirect_to @post, notice: '更新しました'
+      redirect_to admin_posts_path, notice: '更新しました'
     else
-      render :edit, alert: '入力内容を確認して下さい'
+      render :edit, notice: '入力内容を確認して下さい'
     end
   end
 
@@ -38,7 +36,7 @@ class Admin::PostsController < Admin::BaseController
   private
 
   def set_post
-    @post = Post.find(params[:id])
+    @post = @blog.posts.find(params[:id])
   end
 
   def post_params
