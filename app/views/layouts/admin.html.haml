@@ -14,15 +14,20 @@
 
 
   %body
+    .navbar.navbar-expand-lg.navbar-dark.bg-dark
+      %a.navbar-brand(href= admin_root_path )= @blog.title
+      #navbar-links.navbar-collapse.collapse
+        %ul.nav.navbar-nav
+          %li.nav-item= link_to 'ブログ管理', edit_admin_blog_path, class: 'nav-link'
+          %li.nav-item= link_to '記事管理', admin_posts_path, class: 'nav-link'
+      %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+
     .container
-      .row.mt-1
-        .col-lg-12
-          .jumbotron
-            .container
-              %h1.display-3= @blog.title
-              %p.lead= @blog.description
       .row
-        .col-lg-12
+        .col-lg-9
           = yield
       %footer
         %p &copy; Company 2017

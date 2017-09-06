@@ -1,0 +1,8 @@
+%article.card
+  .card-body
+    %h2.card-title= post.title
+    .tags
+      - post.tag_list.each do |tag|
+        %span.badge.badge-primary= tag
+  .card-body
+    .card-text= post.body
