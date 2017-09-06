@@ -16,17 +16,25 @@
   %body
     .navbar.navbar-expand-lg.navbar-dark.bg-dark
       %a.navbar-brand(href= admin_root_path )= @blog.title
+      %button.navbar-toggler{ type: 'button', data: {toggle:"collapse", target:"#navbar-links" }}
+        %span.navbar-toggler-icon
       #navbar-links.navbar-collapse.collapse
-        %ul.nav.navbar-nav
-          %li.nav-item= link_to 'ブログ管理', edit_admin_blog_path, class: 'nav-link'
-          %li.nav-item= link_to '記事管理', admin_posts_path, class: 'nav-link'
-      %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
+        %ul.navbar-nav
+          %li.nav-item
+            = link_to new_admin_post_path, class: 'nav-link' do
+              = fa_icon 'pencil-square-o'
+              書く
+          %li.nav-item
+            = link_to admin_posts_path, class: 'nav-link' do
+              = fa_icon 'list'
+              記事管理
+          %li.nav-item
+            = link_to edit_admin_blog_path, class: 'nav-link' do
+              = fa_icon 'wrench'
+              ブログ管理
 
     .container
-      .row
+      .row.mt-3
         .col-lg-9
           = yield
       %footer
