@@ -2,7 +2,7 @@ class Admin::PostsController < Admin::BaseController
   before_action :set_post, only: %i(show edit update destroy)
 
   def index
-    @posts = @blog.posts.order(updated_at: :desc)
+    @posts = @blog.posts.order(updated_at: :desc).page params[:page]
   end
 
   def new

@@ -38,6 +38,7 @@ gem 'kaminari'
 gem 'simple_form'
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.0.0.beta'
+
 group :development, :test do
   gem 'annotate'
   gem 'better_errors'

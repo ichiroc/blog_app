@@ -1,3 +1,5 @@
+= paginate @posts
+
 %table.table
   %tr
     %th タイトル
@@ -10,3 +12,5 @@
       %td= post.body
       %td= post.published_at
       %td= link_to 'Edit', edit_admin_post_path(post)
+
+= paginate @posts
