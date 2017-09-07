@@ -5,11 +5,12 @@
 #  id           :integer          not null, primary key
 #  title        :string
 #  body         :text
-#  published_at :date
+#  published_at :datetime
 #  url_path     :string
 #  blog_id      :integer
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  published    :boolean
 #
 # Indexes
 #

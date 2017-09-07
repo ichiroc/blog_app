@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
   def index
-    @posts = @blog.posts.order(created_at: :desc)
+    @posts = @blog.posts.published.order(published_at: :desc)
   end
 end

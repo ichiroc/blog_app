@@ -5,6 +5,7 @@
     = f.input :url_path
     = f.input :tag_list, as: :select, collection: @blog.tags, input_html: { class: 'select2', multiple: true }
     = f.input :body
+    = f.input :published
     = f.input :published_at, include_blank: true
   .form-actions
     = f.button :submit, class: 'btn btn-primary'

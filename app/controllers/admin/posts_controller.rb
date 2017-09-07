@@ -2,7 +2,7 @@ class Admin::PostsController < Admin::BaseController
   before_action :set_post, only: %i(show edit update destroy)
 
   def index
-    @posts = @blog.posts
+    @posts = @blog.posts.order(updated_at: :desc)
   end
 
   def new
@@ -40,6 +40,6 @@ class Admin::PostsController < Admin::BaseController
   end
 
   def post_params
-    params.require(:post).permit(:title, :body, :url_path, :tag_list)
+    params.require(:post).permit(:title, :body, :url_path, :tag_list, :published)
   end
 end

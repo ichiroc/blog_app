@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170906020131) do
+ActiveRecord::Schema.define(version: 20170907021441) do
 
   create_table "blogs", force: :cascade do |t|
     t.string "title"
@@ -23,11 +23,12 @@ ActiveRecord::Schema.define(version: 20170906020131) do
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "body"
-    t.date "published_at"
+    t.datetime "published_at"
     t.string "url_path"
     t.integer "blog_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "published"
     t.index ["blog_id"], name: "index_posts_on_blog_id"
   end
 
