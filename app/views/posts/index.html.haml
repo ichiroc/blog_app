@@ -1,6 +1,6 @@
 - @posts.each do |post|
   .row.mb-3
     .col-md-12
-      =render post
+      =render post, { action: :index }
 
 = paginate @posts

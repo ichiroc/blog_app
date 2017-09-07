@@ -16,7 +16,7 @@
   %body
     .jumbotron
       .container
-        %h1.display-3= @blog.title
+        %h1.display-3= link_to @blog.title, root_path
         %p.lead= @blog.description
     .container
       .row
