@@ -21,8 +21,27 @@
 window.global = {};
 
 $(document).on('turbolinks:load', function(){
-  $(".select2").select2({
+  $('.select2').select2({
     tags: true,
     theme: 'bootstrap'
+  });
+
+  global.warnningOnLeave = false;
+
+  $('input, textarea, select').on('keyup change', function(){
+    if(!global.warnningOnLeave){
+      $(document).on('turbolinks:before-visit', function(e) {
+        if(confirm('You will lose enterd data, Are you sure?')){
+          $(document).off('turbolinks:before-visit');
+        }else{
+          e.preventDefault();
+        }
+      });
+      global.warnningOnLeave = true;
+    }
+  });
+
+  $('input[type=submit]').on('click', function(e) {
+    $(document).off('turbolinks:before-visit');
   });
 });
