@@ -12,6 +12,7 @@
 
 class Blog < ApplicationRecord
   has_many :posts
+  has_many :tags, through: :posts
   validates :title, presence: true
   validates :author, presence: true
 end

@@ -15,4 +15,7 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require turbolinks
+//= require select2
 //= require_tree .
+
+$(function(){ $(".select2").select2({ tags: true }) })
