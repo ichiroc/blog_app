@@ -18,4 +18,9 @@
 //= require select2
 //= require_tree .
 
-$(function(){ $(".select2").select2({ tags: true }) })
+$(document).on('turbolinks:load', function(){
+  $(".select2").select2({ tags: true })
+  $("#post_title").keyup(function(e) {
+    $("#post_url_path").val($(e.target).val())
+  })
+});

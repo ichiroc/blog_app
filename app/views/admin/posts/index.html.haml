@@ -1,16 +1,19 @@
 = paginate @posts
 
+= flash_messages
+
 %table.table
   %tr
-    %th タイトル
-    %th 本文
-    %th 公開日
+    %th Title
+    %th Body
+    %th Published At
     %th
   - @posts.each do |post|
     %tr
       %td= post.title
-      %td= post.body
+      %td= truncate(post.body, length: 50)
       %td= post.published_at
       %td= link_to 'Edit', edit_admin_post_path(post)
+      %td= link_to 'Destroy', admin_post_path(post), method: :delete, data: { confirm: 'Are you sure?' }
 
 = paginate @posts

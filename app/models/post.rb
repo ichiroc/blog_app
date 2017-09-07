@@ -28,6 +28,9 @@ class Post < ApplicationRecord
 
   scope :published, -> { where(published: true) }
 
+  # NOTE: default_value_for がバージョンの関係で使えないので
+  attribute :published, :boolean, default: -> { true }
+
   private
 
   def set_publshed_date

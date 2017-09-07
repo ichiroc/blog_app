@@ -1,0 +1,5 @@
+- alert_map = { notice: :success, alert: :danger }.with_indifferent_access
+- flash.each do |key, msg|
+  .alert{ class: "alert-#{alert_map[key]}" }
+    %a.close{"data-dismiss" => "alert"} ×
+    %div= msg
