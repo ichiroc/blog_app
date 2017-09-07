@@ -1,0 +1,29 @@
+$(document).on('turbolinks:load', function(){
+  if(global.previewIntervalId){
+    clearInterval(global.previewIntervalId);
+  }
+
+  if($('body').data('page-id') == 'post_form'){
+    var $postBody = $("#post_body");
+    var updateArticlePreview =function(){
+      $.post("<%= Rails.application.routes.url_helpers.admin_preview_path %>",
+             {
+               body: $postBody.val()
+             })
+        .done(function(data){
+          $("#article-preview").html(data.body);
+        });
+    };
+
+    $("#post_title").keyup(function(e) {
+      $("#post_url_path").val($(e.target).val());
+    });
+
+    $postBody.change(function(e){
+      updateArticlePreview();
+    });
+    if(typeof global.previewIntervalId == 'undefined') {
+      global.previewIntervalId = setInterval(updateArticlePreview, 5000);
+    }
+  }
+});

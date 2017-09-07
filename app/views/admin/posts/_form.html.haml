@@ -1,11 +1,24 @@
+- content_for :page_id { 'post_form' }
 = simple_form_for [:admin, @post], html: { class: 'form-horizontal' } do |f|
   = f.error_notification
   .form-inputs
-    = f.input :title
-    = f.input :url_path
-    = f.input :tag_list, as: :select, collection: @blog.tags, input_html: { class: 'select2', multiple: true }
-    = f.input :body, input_html: { rows: 20 }
-    = f.input :published
-    = f.input :published_at, include_blank: true, hint: "If you check 'published' and omit date time, set current time automaticaly."
+    .form-row
+      .col= f.input :title
+      .col= f.input :url_path
+    .form-row
+      .col= f.input :tag_list, as: :select, collection: @blog.tags, input_html: { class: 'select2', multiple: true }
+    .form-row
+      .col-lg-6= f.input :body, input_html: { rows: 20 }
+      .col-lg-6
+        %label Preview
+        .card
+          .card-text
+            .card-body
+              .card-text
+              #article-preview=raw htmlize(@post.body)
+    .form-row
+      .col= f.input :published
+    .form-row
+      .col= f.input :published_at, include_blank: true, hint: "If you check 'published' and omit date time, set current time automaticaly."
   .form-actions
     = f.button :submit, class: 'btn btn-primary'

@@ -15,8 +15,9 @@
 #                 PATCH  /admin/posts/:id(.:format)      admin/posts#update
 #                 PUT    /admin/posts/:id(.:format)      admin/posts#update
 #                 DELETE /admin/posts/:id(.:format)      admin/posts#destroy
+#   admin_preview POST   /admin/preview(.:format)        admin/previews#create
 #      admin_root GET    /admin(.:format)                admin/posts#index
-# 
+#
 
 Rails.application.routes.draw do
   root to: 'posts#index'
@@ -25,6 +26,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resource :blog, only: [:edit, :update]
     resources :posts
+    resource :preview, only: [:create]
     root to: 'posts#index'
   end
 end
