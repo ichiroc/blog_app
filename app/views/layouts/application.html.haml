@@ -20,7 +20,10 @@
         %p.lead= @blog.description
     .container
       .row
-        .col-lg-12
+        .col
+          = breadcrumbs
+      .row
+        .col
           = yield
       %footer
         %p
