@@ -1,6 +1,7 @@
 %article.card
   .card-body
     %h2.post-title.card-title= link_to post.title, post_path(post.url_path)
+    %p.small.text-muted= time_ago_in_words post.published_at
     .tags
       - post.tag_list.each do |tag|
         = link_to posts_path(tag: tag), class: 'badge badge-info mr-1' do
