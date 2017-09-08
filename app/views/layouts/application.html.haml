@@ -13,14 +13,14 @@
       = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"
 
 
-  %body
-    %header.border.border-black.pt-3
+  %body.bg-light
+    %header.border.border-black.pt-3.bg-white
       .container
         .d-flex.justify-content-center
           %h1#blog-title= link_to @blog.title, root_path
         .d-flex.justify-content-center
           %p.lead= @blog.description
-    .pt-3.bg-light
+    .pt-3
       .container
         .row
           .container
