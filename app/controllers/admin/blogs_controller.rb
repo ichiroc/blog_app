@@ -12,7 +12,7 @@ class Admin::BlogsController < Admin::BaseController
   private
 
   def blog_params
-    params.require(:blog).permit(:title, :description)
+    params.require(:blog).permit(:title, :description, :author)
   end
 
   def set_blog
