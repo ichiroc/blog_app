@@ -6,7 +6,7 @@
       .col= f.input :title
       .col= f.input :url_path
     .form-row
-      .col= f.input :tag_list, as: :select, collection: @blog.tags, input_html: { class: 'select2', multiple: true }
+      .col= f.input :tag_list, as: :select, collection: @blog.tags.map(&:name), input_html: { class: 'select2', multiple: true }
     .form-row
       .col-lg-6= f.input :body, input_html: { rows: 20 }
       .col-lg-6

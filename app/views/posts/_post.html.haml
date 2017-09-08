@@ -3,7 +3,7 @@
     %h2.card-title= link_to post.title, post_path(post.url_path)
     .tags
       - post.tag_list.each do |tag|
-        %span.badge.badge-primary= tag
+        = link_to tag, posts_path(tag: tag), class: 'badge badge-primary'
   .card-body
     .card-text
       - if controller.action_name == 'index'
