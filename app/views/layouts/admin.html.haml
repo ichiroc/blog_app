@@ -15,22 +15,27 @@
   %body{ data: { page: { id: content_for?(:page_id) ? yield(:page_id) : 'general' } }}
     .navbar.navbar-expand-lg.navbar-dark.bg-dark
       %a.navbar-brand(href= admin_root_path )= @blog.title
-      %button.navbar-toggler{ type: 'button', data: {toggle:"collapse", target:"#navbar-links" }}
+      %button.navbar-toggler{ type: 'button', data: {toggle:"collapse", target:".navbar-links" }}
         %span.navbar-toggler-icon
-      #navbar-links.navbar-collapse.collapse
+      .navbar-links.navbar-collapse.collapse.justify-content-between
         %ul.navbar-nav
           %li.nav-item
             = link_to new_admin_post_path, class: 'nav-link' do
               = fa_icon 'pencil-square-o'
-              書く
+              New
           %li.nav-item
             = link_to admin_posts_path, class: 'nav-link' do
               = fa_icon 'list'
-              記事管理
+              Posts
           %li.nav-item
             = link_to edit_admin_blog_path, class: 'nav-link' do
               = fa_icon 'wrench'
-              ブログ管理
+              Settings
+        %ul.navbar-nav
+          %li.nav-item
+            = link_to root_path, class: 'nav-link', target: '_blank' do
+              = fa_icon 'arrow-circle-right'
+              Visit Blog
 
     .container
       .row.mt-3
