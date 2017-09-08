@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20170907021441) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "blogs", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -25,14 +28,14 @@ ActiveRecord::Schema.define(version: 20170907021441) do
     t.text "body"
     t.datetime "published_at"
     t.string "url_path"
-    t.integer "blog_id"
+    t.bigint "blog_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "published"
     t.index ["blog_id"], name: "index_posts_on_blog_id"
   end
 
-  create_table "taggings", force: :cascade do |t|
+  create_table "taggings", id: :serial, force: :cascade do |t|
     t.integer "tag_id"
     t.string "taggable_type"
     t.integer "taggable_id"
@@ -51,10 +54,11 @@ ActiveRecord::Schema.define(version: 20170907021441) do
     t.index ["tagger_id"], name: "index_taggings_on_tagger_id"
   end
 
-  create_table "tags", force: :cascade do |t|
+  create_table "tags", id: :serial, force: :cascade do |t|
     t.string "name"
     t.integer "taggings_count", default: 0
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
+  add_foreign_key "posts", "blogs"
 end

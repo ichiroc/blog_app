@@ -16,6 +16,10 @@
 #
 #  index_posts_on_blog_id  (blog_id)
 #
+# Foreign Keys
+#
+#  fk_rails_...  (blog_id => blogs.id)
+#
 
 class Post < ApplicationRecord
   belongs_to :blog
