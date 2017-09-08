@@ -5,14 +5,21 @@ $(document).on('turbolinks:load', function(){
 
   if($('body').data('page-id') == 'post_form'){
     var $postBody = $("#post_body");
+    var prevBody = $postBody.val();
+    var prevUpdatedAt = new Date();
     var updateArticlePreview =function(){
-      $.post("<%= Rails.application.routes.url_helpers.admin_preview_path %>",
-             {
-               body: $postBody.val()
-             })
-        .done(function(data){
-          $("#article-preview").html(data.body);
-        });
+      var currentBody = $postBody.val();
+      if(prevBody != currentBody && (new Date() - prevUpdatedAt) > 2000 ){
+        prevUpdatedAt = new Date();
+        $.post("<%= Rails.application.routes.url_helpers.admin_preview_path %>",
+               {
+                 body: $postBody.val()
+               })
+          .done(function(data){
+            $("#article-preview").html(data.body);
+            prevBody = currentBody;
+          });
+      }
     };
 
     $("#post_title").keyup(function(e) {
@@ -23,7 +30,7 @@ $(document).on('turbolinks:load', function(){
       updateArticlePreview();
     });
     if(typeof global.previewIntervalId == 'undefined') {
-      global.previewIntervalId = setInterval(updateArticlePreview, 5000);
+      global.previewIntervalId = setInterval(updateArticlePreview, 100);
     }
   }
 });
