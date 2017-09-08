@@ -1,6 +1,6 @@
 module ApplicationHelper
   def htmlize(content)
-    GitHub::Markup.render_s(GitHub::Markups::MARKUP_MARKDOWN, content)
+    GitHub::Markup.render_s(GitHub::Markups::MARKUP_MARKDOWN, content) if content.present?
   end
 
   def flash_messages
