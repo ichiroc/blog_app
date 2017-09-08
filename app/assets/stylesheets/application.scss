@@ -11,7 +11,38 @@
  * It is generally better to create a new file per style scope.
  *
  */
+
+$link-color: #696969;
+
+* {
+    font-family: serif;
+}
+
 @import "bootstrap";
 @import "font-awesome";
 @import "select2";
 @import "select2-bootstrap";
+
+#blog-title{
+    font-size: xx-large;
+    font-weight: bold;
+    a { color: rgba(0,0,0,.8)!important; }
+}
+
+.post-title {
+    font-size: x-large;
+    font-weight: bold;
+    a {
+        font-family: sans-serif!important;
+    }
+}
+
+a:hover {
+    text-decoration-line: none
+}
+
+article {
+    footer{
+        font-size: small;
+    }
+}

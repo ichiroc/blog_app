@@ -1,15 +1,15 @@
 %article.card
   .card-body
-    %h2.card-title= link_to post.title, post_path(post.url_path)
+    %h2.post-title.card-title= link_to post.title, post_path(post.url_path)
     .tags
       - post.tag_list.each do |tag|
-        = link_to posts_path(tag: tag), class: 'badge badge-primary mr-1' do
+        = link_to posts_path(tag: tag), class: 'badge badge-info mr-1' do
           = fa_icon 'tag'
           = tag
   .card-body
     .card-text
       - if controller.action_name == 'index'
         = raw htmlize(truncate(post.body, length: 100))
-        %footer= link_to '続きを読む', post_path(post.url_path)
+        %footer= link_to 'Read more...', post_path(post.url_path)
       - else
         = raw htmlize(post.body)
