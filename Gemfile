@@ -39,6 +39,7 @@ gem 'jquery-rails', "~> 4.3.1"
 gem 'bootstrap', '~> 4.0.0.beta'
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'annotate', "~> 2.7.2"
   gem 'better_errors', "~> 2.3.0"
   gem 'binding_of_caller', "~> 0.7.2"
@@ -65,3 +66,4 @@ gem 'pg', "~> 0.21.0"
 gem 'gretel', "~> 3.0.9"
 gem 'carrierwave', "~> 1.1.0"
 gem 'mini_magick', "~> 4.8.0"
+gem 'fog-aws'
