@@ -8,9 +8,12 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  author      :string
+#  images      :json
 #
 
 class Blog < ApplicationRecord
+  mount_uploaders :images, ImageUploader
+
   has_many :posts
   has_many :tags, through: :posts
   validates :title, presence: true

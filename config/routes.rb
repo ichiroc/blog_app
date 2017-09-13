@@ -24,7 +24,9 @@ Rails.application.routes.draw do
   resources :posts, param: 'url_path', only: [:index, :show]
 
   namespace :admin do
-    resource :blog, only: [:edit, :update]
+    resource :blog, only: [:edit, :update] do
+      resources :images, only: [:create]
+    end
     resources :posts
     resource :preview, only: [:create]
     root to: 'posts#index'

@@ -1,4 +1,12 @@
 $(document).on('turbolinks:load', function(){
+  $('#image-uploader').on('ajax:success', function(event){
+    // NOTE: detail 0: data, 1: status, 2: xhr
+    var imageLink ="![](" + event.detail[0].url + ")"
+    $("#post_body").append(imageLink);
+    $("#file-upload-form").modal('hide');
+  }).on('ajax:error', function(event){
+    alert("Error occured: " + event.detail[0])
+  });
   if(global.previewIntervalId){
     clearInterval(global.previewIntervalId);
   }

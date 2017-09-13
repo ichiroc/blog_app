@@ -17,8 +17,27 @@
               .card-text
               #article-preview=raw htmlize(@post.body)
     .form-row
+      .col
+        %input.btn.btn-secondary{ value: 'Image upload', type: :button, data: { toggle: :modal, target: '#file-upload-form' }}
+    .form-row
       .col= f.input :published
     .form-row
       .col= f.input :published_at, include_blank: true, hint: "If you check 'published' and omit date time, set current time automaticaly."
   .form-actions
     = f.button :submit, class: 'btn btn-primary'
+
+
+#file-upload-form.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        Upload Image
+      .modal-body
+        = simple_form_for :image, url: admin_blog_images_path, remote: true, html: {id: 'image-uploader'} do |image_f|
+          .form-inputs
+            .form-row
+              = image_f.input :file, as: :file, required: true
+          .form-actions.d-flex.justify-content-end
+            %button.btn.btn-secoundary.mr-3{ data: { dismiss: :modal } }
+              Cancel
+            = image_f.submit 'Uplaod', class: 'btn btn-primary'
