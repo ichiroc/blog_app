@@ -8,8 +8,8 @@
     .form-row
       .col= f.input :tag_list, as: :select, collection: @blog.tags.map(&:name), input_html: { class: 'select2', multiple: true }
     .form-row
-      .col-lg-6= f.input :body, input_html: { rows: 20 }
-      .col-lg-6
+      .col= f.input :body, input_html: { rows: 20 }
+      .col
         %label Preview
         .card
           .card-text
@@ -19,7 +19,7 @@
     .form-row
       .col
         %input.btn.btn-secondary{ value: 'Image upload', type: :button, data: { toggle: :modal, target: '#file-upload-form' }}
-    .form-row
+    .form-row.mt-3
       .col= f.input :published
     .form-row
       .col= f.input :published_at, include_blank: true, hint: "If you check 'published' and omit date time, set current time automaticaly."
