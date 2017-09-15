@@ -1,6 +1,8 @@
 module ApplicationHelper
   def htmlize(content)
-    GitHub::Markup.render_s(GitHub::Markups::MARKUP_MARKDOWN, content) if content.present?
+    renderer = HTML.new
+    markdown = Redcarpet::Markdown.new(renderer, fenced_code_blocks: true)
+    markdown.render(content) if content.present?
   end
 
   def flash_messages

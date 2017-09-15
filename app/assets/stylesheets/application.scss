@@ -13,15 +13,13 @@
  */
 
 $link-color: #696969;
-
-* {
-    font-family: serif;
-}
+$font-family-base: serif;
 
 @import "bootstrap";
 @import "font-awesome";
 @import "select2";
 @import "select2-bootstrap";
+@import "syntax_highlight";
 
 #blog-title{
     font-size: xx-large;

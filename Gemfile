@@ -59,11 +59,11 @@ gem 'therubyracer', "~> 0.12.3"
 gem 'less-rails', "~> 2.8.0"
 gem 'acts-as-taggable-on', "~> 5.0.0"
 gem 'font-awesome-rails', "~> 4.7.0.2"
-gem 'github-markup', "~> 1.6.1", require: 'github/markup'
-gem 'commonmarker', "~> 0.17.0"
 gem 'select2-rails', "~> 4.0.3"
 gem 'pg', "~> 0.21.0"
 gem 'gretel', "~> 3.0.9"
 gem 'carrierwave', "~> 1.1.0"
 gem 'mini_magick', "~> 4.8.0"
 gem 'fog-aws'
+gem 'redcarpet'
+gem 'rouge'
