@@ -1,0 +1,11 @@
+= flash_messages
+- @images.each_slice(6) do |images|
+  .row.mb-3
+    - images.each do |image|
+      .col-lg-2
+        .card
+          .card-body
+            %img.img-fluid{ src: image.thumb.url }
+          .card-footer.d-flex.justify-content-center
+            =link_to admin_image_path(image), method: :delete, data: { confirm: 'Are you sure?'} do
+              = fa_icon 'trash', class: 'bold'

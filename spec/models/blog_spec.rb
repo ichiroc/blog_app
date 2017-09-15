@@ -8,7 +8,6 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  author      :string
-#  images      :json
 #
 
 require 'rails_helper'

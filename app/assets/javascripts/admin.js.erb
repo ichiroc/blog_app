@@ -6,6 +6,8 @@ $(document).on('turbolinks:load', function(){
     $("#file-upload-form").modal('hide');
   }).on('ajax:error', function(event){
     alert("Error occured: " + event.detail[0])
+  }).on('ajax:complete',function(){
+    $("#image_file").val("");
   });
   if(global.previewIntervalId){
     clearInterval(global.previewIntervalId);

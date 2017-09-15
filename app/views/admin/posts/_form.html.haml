@@ -33,7 +33,7 @@
       .modal-header
         Upload Image
       .modal-body
-        = simple_form_for :image, url: admin_blog_images_path, remote: true, html: {id: 'image-uploader'} do |image_f|
+        = simple_form_for :image, url: admin_images_path, remote: true, html: {id: 'image-uploader'} do |image_f|
           .form-inputs
             .form-row
               = image_f.input :file, as: :file, required: true

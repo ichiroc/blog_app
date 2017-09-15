@@ -28,6 +28,10 @@
               = fa_icon 'list'
               Posts
           %li.nav-item
+            = link_to admin_images_path, class: 'nav-link' do
+              = fa_icon 'picture-o'
+              Images
+          %li.nav-item
             = link_to edit_admin_blog_path, class: 'nav-link' do
               = fa_icon 'wrench'
               Settings
